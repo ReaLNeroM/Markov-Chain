@@ -8,7 +8,7 @@ rm -rf output
 mkdir output
 
 if [ "$conversion_check" == 1 ]; then
-    read -p "Enter Username on Facebook: " name
+    read -p "Enter the facebook exactly as it appears in conversations: " name
     for i in `seq $start $end`; do
         if [ $(($i % 16)) == 0 ]; then
             echo $i
