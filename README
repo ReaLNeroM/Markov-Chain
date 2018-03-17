@@ -8,4 +8,4 @@ If confused, do the following:
 1) place all files you want to be analyzed in input/ in the form X.txt or X.html, where X is a number with no leading zeroes. 
 2) run build.sh and follow the instructions
 
-Dependencies: C++11, recode, python
+Dependencies: C++11, PHP, python
