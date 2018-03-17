@@ -88,16 +88,15 @@ int main(int argc, char* argv[]){
 	for(int x = 0; x < texts; x++){
 		std::cout << "Text " << x + 1 << ": ";
 
-		int curr = std::rand() % (mapping.size() / 4) + 1; //the higher values are usually rarer words by themselves
+		int curr = std::rand() % (mapping.size() / 4) + 1;  //higher values are usually rarer words
 															//and generate uninteresting texts
 		for(int i = 0; i < length; i++){
-
 			std::cout << mapping[curr] << ' ';
 
 			int forward_size = appearances_total[curr];
 
 			if(forward_size == 0){
-				std::cerr << '\n' << "ERROR: No forward edge! This happens due to the random nature of the model and is unfixable." << '\n';
+				std::cerr << '\n' << "ERROR: No forward edge! This happens due to the random nature of the model." << '\n';
 				break;
 			}
 
