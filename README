@@ -1,11 +1,13 @@
 This is a Markov Chain algorithm implemented in C++. 
 It is fast enough for most non-commercial use cases. More quantitatively, it processes the 25 most popular Project Gutenberg files in 10 seconds on a notebook i7 processor. The program does not use multiple threads.
 
-To aid in processing Facebook messages (downloadable from Facebook settings->Download a copy of your data), I also included an Facebook messages HTML to plaintext converter. The converter uses the facebook-USERNAMEHERE->messages->*.html files. The HTML files should be in a folder called "input", while the output will be dumped in a folder called "output".
+To aid in processing Facebook messages (downloadable from Facebook settings->Download a copy of your data), build.sh also cleans the message data automatically (with a bit of help from you). 
+The facebook archive's messages/ folder should be provided in a folder called input/. The build.sh script then enumerates the html files in a sequential order for easier processing, analyzes the html files for messages you've written using regex, and then dumps your messages as .txt files in a folder called output/. 
+After this process of data cleaning, Markov Chain.cpp is compiled, and generates a Markov model based on your messages. The Markov model then prints out some sample sentences, which should sound eerily close to the way you talk.
 
 If confused, do the following:
 0) fix the dependencies listed below
-1) place all files you want to be analyzed in input/ in the form X.txt or X.html, where X is a number with no leading zeroes. 
-2) run build.sh and follow the instructions
+1) download your facebook data archive, and place the messages directory in a folder called input/
+2) run build.sh, and follow the instructions
 
 Dependencies: C++11, PHP, python
