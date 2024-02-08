@@ -26,7 +26,7 @@ if [ "$conversion_check" == 1 ]; then
         if [ $(($i % 16)) == 0 ]; then
             echo $i
         fi
-        cat input/$i.html | perl -MHTML::Entities -pe 'decode_entities($_);' > output/ENCODED_$i.html
+        cat input/$i.html | sed 's/&nbsp;//g' | perl -MHTML::Entities -pe 'decode_entities($_);' > output/ENCODED_$i.html
         python3 converter.py output/ENCODED_$i.html output/$i.txt $name
     done
 elif [ "$conversion_check" == 0 ]; then
