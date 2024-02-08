@@ -6,10 +6,9 @@ full_name = ' '.join(sys.argv[3:])
 
 import re
 
-in_file = open(in_file_string, "r")
-out_file = open(out_file_string, "wa+")
+with open(in_file_string, "r") as in_file:
+	with open(out_file_string, "a+") as out_file:
+		str = in_file.read()
+		matchObj = re.findall(r'{full_name}</div><div class=\".*?\"><div><div></div><div>(.*?)</div'.format(full_name=full_name), str, re.M)
 
-str = in_file.read()
-matchObj = re.findall(r'{full_name}</div><div class=\".*?\"><div><div></div><div>(.*?)</div'.format(full_name=full_name), str, re.M)
-
-print >>out_file, '\n'.join(matchObj)
+		out_file.write('\n'.join(matchObj))
